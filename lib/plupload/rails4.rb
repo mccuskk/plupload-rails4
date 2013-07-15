@@ -1,3 +1,4 @@
+require "plupload/rails4/engine"
 require "plupload/rails4/version"
 
 module Plupload
