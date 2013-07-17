@@ -55,6 +55,34 @@ Simple example haml for your views:
       });
     });
 ```
+ERB example
+```erb
+<script>
+  <% session_key_name = Rails.application.config.session_options[:key] %>
+  $(function() {
+    $("#uploader").pluploadQueue({
+      runtimes: 'html5,flash,silverlight',
+      url: "<%= attachments_path %>",
+      max_file_size: '20mb',
+      multiple_queues: true,
+      flash_swf_url: "/assets/jquery_plupload/plupload.flash.swf",
+      silverlight_xap_url: "/assets/jquery_plupload/plupload.silverlight.xap",
+      multipart: true,
+      multipart_params: {
+        '_http_accept': 'application/javascript',
+        'authenticity_token' : "<%= form_authenticity_token %>",
+        "<%= session_key_name %>" : encodeURIComponent("<%= u cookies[session_key_name] %>")
+      },
+
+      init: {
+        FileUploaded: function(up, file, info) {
+          eval(info["response"]);
+        }
+      }
+    });
+  });
+</script>
+```
 
 ## Contributing
 
