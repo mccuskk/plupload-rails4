@@ -1,24 +1,57 @@
-# Plupload::Rails4
+Rails 4.0 Integration for Plupload
+==
 
-TODO: Write a gem description
+This gem integrates [Plupload](http://www.plupload.com/) with the Rails 4.0 asset pipeline.
 
-## Installation
+Install
+--
 
-Add this line to your application's Gemfile:
+Just add it got your Gemfile:
+```
+  gem 'plupload-rails4'
+```
 
-    gem 'plupload-rails4'
+Quick Start
+--
 
-And then execute:
+Add to your application.js:
 
-    $ bundle
+  //= require jquery_plupload/plupload
 
-Or install it yourself as:
+  // optional, only needed if you'd like to use plupload localized
+  //= require jquery_plupload/i18n/de
 
-    $ gem install plupload-rails4
+  // optional, only if you want to use the jquery integration
+  //= require jquery_plupload/jquery.plupload.queue
 
-## Usage
+  // optional, choose the ones you'd like to use
+  //= require jquery_plupload/plupload.flash
+  //= require jquery_plupload/plupload.silverlight
+  //= require jquery_plupload/plupload.html4
+  //= require jquery_plupload/plupload.html5
+  //= require jquery_plupload/plupload.gears
+  //= require jquery_plupload/plupload.browserplus
 
-TODO: Write usage instructions here
+
+Add to your application.scss:
+
+  *= require jquery_plupload/jquery.plupload.queue
+
+
+Simple example haml for your views:
+
+  div#uploader
+  javascript:
+    $(function(){
+      $("#uploader").pluploadQueue({
+        runtimes: 'gears,flash,silverlight,browserplus,html5',
+        url: '#{images_path}',
+        multipart_params: {
+          '#{request_forgery_protection_token}': '#{form_authenticity_token}',
+          '#{request.session_options[:key]}': '#{request.session_options[:id]}'
+        }
+      });
+    });
 
 ## Contributing
 
