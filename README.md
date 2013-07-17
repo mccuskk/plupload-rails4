@@ -7,8 +7,8 @@ Install
 --
 
 Just add it got your Gemfile:
-```
-  gem 'plupload-rails4'
+```ruby
+gem 'plupload-rails4'
 ```
 
 Quick Start
@@ -16,30 +16,32 @@ Quick Start
 
 Add to your application.js:
 
-  //= require jquery_plupload/plupload
+```javascript
+//= require jquery_plupload/plupload
+// optional, only needed if you'd like to use plupload localized
+//= require jquery_plupload/i18n/de
 
-  // optional, only needed if you'd like to use plupload localized
-  //= require jquery_plupload/i18n/de
-
-  // optional, only if you want to use the jquery integration
-  //= require jquery_plupload/jquery.plupload.queue
-
-  // optional, choose the ones you'd like to use
-  //= require jquery_plupload/plupload.flash
-  //= require jquery_plupload/plupload.silverlight
-  //= require jquery_plupload/plupload.html4
-  //= require jquery_plupload/plupload.html5
-  //= require jquery_plupload/plupload.gears
-  //= require jquery_plupload/plupload.browserplus
-
+// optional, only if you want to use the jquery integration
+//= require jquery_plupload/jquery.plupload.queue
+// optional, choose the ones you'd like to use
+//= require jquery_plupload/plupload.flash
+//= require jquery_plupload/plupload.silverlight
+//= require jquery_plupload/plupload.html4
+//= require jquery_plupload/plupload.html5
+//= require jquery_plupload/plupload.gears
+//= require jquery_plupload/plupload.browserplus
+```
 
 Add to your application.scss:
 
-  *= require jquery_plupload/jquery.plupload.queue
-
+```css
+/*
+ *= require jquery_plupload/jquery.plupload.queue
+ */
+```
 
 Simple example haml for your views:
-
+```html
   div#uploader
   javascript:
     $(function(){
@@ -52,6 +54,7 @@ Simple example haml for your views:
         }
       });
     });
+```
 
 ## Contributing
 
