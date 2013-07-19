@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary     = %Q{Integration of Plupload #{Plupload::VERSION} with the Rails 4.0 asset pipeline}
   spec.description = %Q{This gem integrates Plupload #{Plupload::VERSION} with the Rails 4.0 asset pipeline.}
   spec.rubyforge_project = "plupload-rails4"
-  # spec.license       = "MIT"
+  spec.license       = "MIT"
 
   # spec.files         = `git ls-files`.split($/)
   # spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
